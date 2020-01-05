@@ -1,0 +1,4 @@
+{
+    "jwtToken" : "mysecrettokent",
+    "jwtExpireIn" : 360000
+}
