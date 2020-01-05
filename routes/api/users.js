@@ -32,7 +32,7 @@ router.post(
     try {
       let user = await User.findOne({ email });
       if (user) {
-        // console.log(user.id)
+        console.log(user.id)
         // user.remove();
         const error = "Email exist.";
         return res.status(400).json({ errors: [{ msg: error }] });
@@ -50,7 +50,7 @@ router.post(
         avatar,
         password
       });
-      const salt = await bcrypt.genSalt(10);
+      const salt = await bcrypt.genSalt(11);
       user.password = await bcrypt.hash(password, salt);
       await user.save();
 
@@ -61,7 +61,7 @@ router.post(
       };
       jwt.sign(
         payload,
-        config.get("jwtToken"),
+        config.get("jwtSecret"),
         {
           expiresIn: config.get("jwtExpireIn")
         },

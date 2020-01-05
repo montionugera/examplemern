@@ -14,5 +14,6 @@ app.use(express.json());
 app.get("/", (req, res) => res.send("hello"));
 
 app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
 
 app.listen(PORT, () => console.log(`Server started ( localhost:${PORT})`.green));
