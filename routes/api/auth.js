@@ -29,7 +29,6 @@ router.post("/", async (req, res) => {
   try {
     let user = await User.findOne({ email });
     if (!user) {
-      console.log(user.id);
       const error = "Email not found.";
       return res.status(400).json({ errors: [{ msg: error }] });
     }
